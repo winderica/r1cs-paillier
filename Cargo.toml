@@ -1,0 +1,28 @@
+[package]
+name = "paillier"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+ark-std = { version = "0.4.0-alpha", features = ["parallel"] }
+ark-serialize = { version = "0.4.0-alpha" }
+ark-ff = { version = "0.4.0-alpha", features = ["asm", "parallel"] }
+ark-ec = { version = "0.4.0-alpha", features = ["parallel"] }
+ark-poly = { version = "0.4.0-alpha", features = ["parallel"] }
+ark-r1cs-std = { version = "0.4.0-alpha", features = ["parallel"] }
+ark-bn254 = { version = "0.4.0-alpha" }
+ark-secp256k1 = "0.4.0-alpha.2"
+ark-relations = { version = "0.4.0-alpha" }
+ark-groth16 = { git = "https://github.com/arkworks-rs/groth16", features = ["parallel", "print-trace"], rev = "765b38b7cba25bd568f3ecd0ab04e0e2c83afb46" }
+rand = { version = "^0.8.0" }
+num = { version = "^0.4.0", features = ["rand", "serde"] }
+num-prime = "0.4.1"
+num-modular = "0.5.1"
+rayon = "*"
+
+[features]
+default = ["parallel"]
+parallel = []
+
+[profile.test]
+opt-level = 3
